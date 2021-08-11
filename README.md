@@ -33,8 +33,12 @@ A dummy application for a bank; should provide various functions of a retail ban
 * A bank manager can get a report showing the list of customers and how many accounts they have
 * A bank manager can get a report showing the total interest paid by the bank on all accounts
 
-### Additional Features
+### Adding Unit test
+* Add Unit test to cover Transaction class
+* Add Unit test to test getFirstCustomer method in Bank.java
 
+### Additional Features
+* Change **Super Savings accounts** to have an interest rate of Maxi Savings + 2%
 * A customer can transfer between their accounts
 * Change **Maxi-Savings accounts** to have an interest rate of 5% assuming no withdrawals in the past 10 days otherwise 0.1%
 * Interest rates should accrue daily (incl. weekends), rates above are per-annum
