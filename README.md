@@ -40,3 +40,6 @@ A dummy application for a bank; should provide various functions of a retail ban
 ### Additional Features(Please add features first and then if time permits, add unit tests for the additional features)
 * Add new account type as **Super Savings accounts** to have an interest rate of Maxi Savings account + 2%
 * A customer can transfer between their accounts
+
+----
+### Feel free to add any dependencies and change the main code as per your needs.
