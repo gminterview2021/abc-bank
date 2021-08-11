@@ -37,8 +37,6 @@ A dummy application for a bank; should provide various functions of a retail ban
 * Add Unit test to cover Transaction class
 * Add Unit test to test getFirstCustomer method in Bank.java
 
-### Additional Features
-* Change **Super Savings accounts** to have an interest rate of Maxi Savings + 2%
+### Additional Features(Please add features first and then if time permits, add unit tests for the additional features)
+* Add new account type as **Super Savings accounts** to have an interest rate of Maxi Savings account + 2%
 * A customer can transfer between their accounts
-* Change **Maxi-Savings accounts** to have an interest rate of 5% assuming no withdrawals in the past 10 days otherwise 0.1%
-* Interest rates should accrue daily (incl. weekends), rates above are per-annum
