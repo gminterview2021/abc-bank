@@ -8,6 +8,7 @@ public class Account {
     public static final int CHECKING = 0;
     public static final int SAVINGS = 1;
     public static final int MAXI_SAVINGS = 2;
+    public static final int SUPER_SAVINGS = 3;
 
     private final int accountType;
     public List<Transaction> transactions;
@@ -17,11 +18,11 @@ public class Account {
         this.transactions = new ArrayList<Transaction>();
     }
 
-    public void deposit(double amount) {
-        if (amount <= 0) {
+    public void deposit(Transaction transaction) {
+        if (transaction.amount <= 0) {
             throw new IllegalArgumentException("amount must be greater than zero");
         } else {
-            transactions.add(new Transaction(amount));
+            transactions.add(transaction);
         }
     }
 
@@ -50,6 +51,13 @@ public void withdraw(double amount) {
                 if (amount <= 2000)
                     return 20 + (amount-1000) * 0.05;
                 return 70 + (amount-2000) * 0.1;
+
+            case SUPER_SAVINGS:
+                if(amount <= 1000)
+                    return amount * 0.04;
+                if(amount <= 2000)
+                    return 40 + (amount - 1000) * 0.07;
+                return 110 + (amount-2000) * 0.03;
             default:
                 return amount * 0.001;
         }
@@ -64,6 +72,15 @@ public void withdraw(double amount) {
         for (Transaction t: transactions)
             amount += t.amount;
         return amount;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+    public void clearTransactions(){
+
+        transactions.clear();
+
     }
 
     public int getAccountType() {
