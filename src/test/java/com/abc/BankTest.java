@@ -2,10 +2,13 @@ package com.abc;
 
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 public class BankTest {
     private static final double DOUBLE_DELTA = 1e-15;
+    private List<Customer> customers;
 
     @Test
     public void customerSummary() {
@@ -49,6 +52,14 @@ public class BankTest {
         checkingAccount.deposit(3000.0);
 
         assertEquals(170.0, bank.totalInterestPaid(), DOUBLE_DELTA);
+    }
+    @Test
+    public void get_first_customer() {
+        Bank bank = new Bank();
+        bank.addCustomer(new Customer("Diren Colak"));
+        String firstCustomer = bank.getFirstCustomer();
+        assertEquals("Diren Colak", firstCustomer);
+
     }
 
 }
