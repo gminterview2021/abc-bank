@@ -8,6 +8,8 @@ package com.abc;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
+import static org.junit.Assert.assertTrue;
+
 /**
  *
  * @author Carrington
