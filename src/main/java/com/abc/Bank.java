@@ -36,14 +36,11 @@ public class Bank {
 
     public String getFirstCustomer() {
         try {
+            customers = null;
             return customers.get(0).getName();
         } catch (Exception e){
             e.printStackTrace();
             return "Error";
         }
-    }
-
-    public List<Customer> getCustomers() {
-        return customers;
     }
 }

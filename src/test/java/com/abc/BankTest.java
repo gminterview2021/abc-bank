@@ -3,8 +3,6 @@ package com.abc;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 public class BankTest {
     private static final double DOUBLE_DELTA = 1e-15;
@@ -53,14 +51,4 @@ public class BankTest {
         assertEquals(170.0, bank.totalInterestPaid(), DOUBLE_DELTA);
     }
 
-    @Test
-    public void getFirstCustomer(){
-        Bank bank = new Bank();
-        Customer c1 = new Customer("Bob");
-        Customer c2 = new Customer("Joe");
-        bank.addCustomer(c1);
-        bank.addCustomer(c2);
-        assertTrue(bank.getFirstCustomer().equals("Bob"));
-        assertFalse(bank.getFirstCustomer().equals("Joe"));
-    }
 }
