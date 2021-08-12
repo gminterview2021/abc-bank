@@ -1,7 +1,6 @@
 package com.abc;
 
 import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 
 public class BankTest {
@@ -50,5 +49,28 @@ public class BankTest {
 
         assertEquals(170.0, bank.totalInterestPaid(), DOUBLE_DELTA);
     }
-
+    
+     @Test
+    public void testgetFirstCustomer() {
+       
+        // create a new customer called john
+        Bank bank = new Bank();
+        Customer john = new Customer("John");
+        // create a checking account for him
+        john.openAccount(new Account(Account.CHECKING));
+        bank.addCustomer(john);
+        
+       // get name from customer class 
+       String testName = john.getName();
+       
+       // get name from the firstcustomer method
+       String result = bank.getFirstCustomer();
+         
+        // check if they match
+        assertEquals(testName, result);
+    }
+    
+    // method should get the first customer in the list
+    // all their accounts
+    
 }
