@@ -18,7 +18,7 @@ public class BankTest {
     }
 
     @Test
-    public void checkingAccount() {
+    public void testCheckingAccount() {
         Bank bank = new Bank();
         Account checkingAccount = new Account(Account.CHECKING);
         Customer bill = new Customer("Bill").openAccount(checkingAccount);
@@ -30,7 +30,7 @@ public class BankTest {
     }
 
     @Test
-    public void savings_account() {
+    public void TestSavingsAccount() {
         Bank bank = new Bank();
         Account checkingAccount = new Account(Account.SAVINGS);
         bank.addCustomer(new Customer("Bill").openAccount(checkingAccount));
@@ -41,7 +41,7 @@ public class BankTest {
     }
 
     @Test
-    public void maxi_savings_account() {
+    public void TestMaxiSavingsAccount() {
         Bank bank = new Bank();
         Account checkingAccount = new Account(Account.MAXI_SAVINGS);
         bank.addCustomer(new Customer("Bill").openAccount(checkingAccount));
@@ -49,6 +49,30 @@ public class BankTest {
         checkingAccount.deposit(3000.0);
 
         assertEquals(170.0, bank.totalInterestPaid(), DOUBLE_DELTA);
+    }
+    
+    @Test
+    public void TestGetFirstCustomer(){
+        // testing function with no customers
+        Bank bank = new Bank();
+        String noCustomers = bank.getFirstCustomer();
+        assertEquals(noCustomers, "Error");
+        
+        //testing function with single customer
+        Account checkingAccount = new Account(Account.MAXI_SAVINGS);
+        bank.addCustomer(new Customer("Bill").openAccount(checkingAccount));
+        String oneCustomer = bank.getFirstCustomer();
+        assertEquals(oneCustomer, "Bill");
+        
+        //testing function with multipule customer
+        Account billsAccount = new Account(Account.MAXI_SAVINGS);
+        Account jessicasAccount = new Account(Account.MAXI_SAVINGS);
+        Account samAccount = new Account(Account.MAXI_SAVINGS);
+        bank.addCustomer(new Customer("Bill").openAccount(billsAccount));
+        bank.addCustomer(new Customer("Jessica").openAccount(jessicasAccount));
+        bank.addCustomer(new Customer("Sam").openAccount(samAccount));
+        String multipuleCustomer = bank.getFirstCustomer();
+        assertEquals(multipuleCustomer, "Bill");
     }
 
 }

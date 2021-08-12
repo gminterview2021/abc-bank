@@ -15,4 +15,8 @@ public class DateProvider {
     public Date now() {
         return Calendar.getInstance().getTime();
     }
+
+    public static void setDateInstance(DateProvider instance) {
+        DateProvider.instance = instance;
+    }
 }

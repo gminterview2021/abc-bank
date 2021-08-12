@@ -69,5 +69,39 @@ public void withdraw(double amount) {
     public int getAccountType() {
         return accountType;
     }
+    
+    @Override
+    public String toString() {
+        return "Account{" + "accountType=" + accountType + ", transactions=" + transactions + '}';
+    }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 29 * hash + this.accountType;
+        hash = 29 * hash + (this.transactions != null ? this.transactions.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Account other = (Account) obj;
+        if (this.accountType != other.accountType) {
+            return false;
+        }
+        if (this.transactions != other.transactions && (this.transactions == null || !this.transactions.equals(other.transactions))) {
+            return false;
+        }
+        return true;
+    }
+   
 }

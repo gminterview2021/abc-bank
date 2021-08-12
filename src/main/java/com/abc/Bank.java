@@ -36,11 +36,43 @@ public class Bank {
 
     public String getFirstCustomer() {
         try {
-            customers = null;
+//            customers = null;
             return customers.get(0).getName();
         } catch (Exception e){
             e.printStackTrace();
             return "Error";
         }
     }
+
+    @Override
+    public String toString() {
+        return "Bank{" + "customers=" + customers + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 37 * hash + (this.customers != null ? this.customers.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Bank other = (Bank) obj;
+        if (this.customers != other.customers && (this.customers == null || !this.customers.equals(other.customers))) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 }
