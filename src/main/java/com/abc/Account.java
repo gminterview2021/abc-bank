@@ -8,6 +8,7 @@ public class Account {
     public static final int CHECKING = 0;
     public static final int SAVINGS = 1;
     public static final int MAXI_SAVINGS = 2;
+    public static final int SUPER_SAVINGS = 3;
 
     private final int accountType;
     public List<Transaction> transactions;
@@ -50,6 +51,12 @@ public void withdraw(double amount) {
                 if (amount <= 2000)
                     return 20 + (amount-1000) * 0.05;
                 return 70 + (amount-2000) * 0.1;
+            case SUPER_SAVINGS:
+                if (amount <= 1000)
+                    return amount * 0.04;
+                if (amount <= 2000)
+                    return 20 + (amount-1000) * 0.07;
+                return 70 + (amount-2000) * 0.12;
             default:
                 return amount * 0.001;
         }
@@ -70,4 +77,8 @@ public void withdraw(double amount) {
         return accountType;
     }
 
+    public void Transfer(Account recpient, double amount){
+        recpient.deposit(amount);
+        withdraw(amount);
+    }
 }
