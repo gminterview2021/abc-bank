@@ -3,6 +3,7 @@ package com.abc;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class BankTest {
     private static final double DOUBLE_DELTA = 1e-15;
@@ -18,13 +19,26 @@ public class BankTest {
     }
 
     @Test
+    public void testGetFirstCustomer(){
+        Bank bank = new Bank();
+        Customer jane = new Customer("Jane");
+        jane.openAccount(new Account(Account.CHECKING));
+        bank.addCustomer(jane);
+        assertEquals("Jane", bank.getFirstCustomer());
+
+
+    }
+
+
+
+    @Test
     public void checkingAccount() {
         Bank bank = new Bank();
         Account checkingAccount = new Account(Account.CHECKING);
         Customer bill = new Customer("Bill").openAccount(checkingAccount);
         bank.addCustomer(bill);
 
-        checkingAccount.deposit(100.0);
+        checkingAccount.deposit(new Transaction(100.0));
 
         assertEquals(0.1, bank.totalInterestPaid(), DOUBLE_DELTA);
     }
@@ -35,7 +49,7 @@ public class BankTest {
         Account checkingAccount = new Account(Account.SAVINGS);
         bank.addCustomer(new Customer("Bill").openAccount(checkingAccount));
 
-        checkingAccount.deposit(1500.0);
+        checkingAccount.deposit(new Transaction(1500.0));
 
         assertEquals(2.0, bank.totalInterestPaid(), DOUBLE_DELTA);
     }
@@ -46,7 +60,7 @@ public class BankTest {
         Account checkingAccount = new Account(Account.MAXI_SAVINGS);
         bank.addCustomer(new Customer("Bill").openAccount(checkingAccount));
 
-        checkingAccount.deposit(3000.0);
+        checkingAccount.deposit(new Transaction(3000.0));
 
         assertEquals(170.0, bank.totalInterestPaid(), DOUBLE_DELTA);
     }

@@ -15,8 +15,8 @@ public class CustomerTest {
 
         Customer henry = new Customer("Henry").openAccount(checkingAccount).openAccount(savingsAccount);
 
-        checkingAccount.deposit(100.0);
-        savingsAccount.deposit(4000.0);
+        checkingAccount.deposit(new Transaction(100.0));
+        savingsAccount.deposit(new Transaction(4000.0));
         savingsAccount.withdraw(200.0);
 
         assertEquals("Statement for Henry\n" +
