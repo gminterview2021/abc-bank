@@ -25,7 +25,7 @@ public class AccountTest {
         Account a2 = new Account(0);
         assertEquals(0,a1.sumTransactions(),0);
         a1.deposit(10000);
-        a1.Transfer(a2, 5000);
+        //a1.Transfer(a2, 5000);
         assertEquals(5000,a1.sumTransactions(),0);
         assertEquals(5000,a2.sumTransactions(),0);
     }
