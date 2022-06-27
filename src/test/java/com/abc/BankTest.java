@@ -8,6 +8,23 @@ public class BankTest {
     private static final double DOUBLE_DELTA = 1e-15;
 
     @Test
+    public void testGetFirstCustomer(){
+        Customer anna= new Customer("Anna");
+        Bank bofa = new Bank();
+        bofa.addCustomer(anna);
+        assertEquals("Anna", bofa.getFirstCustomer());
+
+    }
+
+    @Test
+    public void testGetFirstCustomerError(){
+
+        Bank bofa = new Bank();
+        assertEquals("Error", bofa.getFirstCustomer());
+
+    }
+
+    @Test
     public void customerSummary() {
         Bank bank = new Bank();
         Customer john = new Customer("John");
